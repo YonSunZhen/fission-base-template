@@ -1,9 +1,9 @@
 {
   "name": "ITTI 助手小程序 API文档",
-  "version": "2.0.0",
+  "version": "1.0.0",
   "title": "API",
-  "url": "https://itc.desaysv.com/devminus/assistant/api/v1",
-  "sampleUrl": "https://itc.desaysv.com/api/develop",
+  "url": "https://xxx.xxxx.com/devminus/assistant/api/v1",
+  "sampleUrl": "https://xxx.xxx.com/api/develop",
   "forceLanguage": "zh-cn",
   "template": {
     "withCompare": true,
