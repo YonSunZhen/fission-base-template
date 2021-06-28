@@ -3,7 +3,7 @@ import * as multiparty from 'multiparty';
 
 export * from './param-helper';
 export * from './db-helper';
-export * from './day-helper';
+export * from './moment-helper';
 
 export interface Context {
   request?: {
