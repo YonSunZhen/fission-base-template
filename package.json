@@ -11,13 +11,10 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
-    "axios": "^0.21.1",
     "knex": "^0.95.6",
     "moment-timezone": "^0.5.33",
-    "mssql": "^7.1.0",
     "multiparty": "^4.2.2",
-    "mysql": "^2.18.1",
-    "tedious": "^11.0.8"
+    "mysql": "^2.18.1"
   },
   "devDependencies": {
     "@types/multiparty": "0.0.32",
