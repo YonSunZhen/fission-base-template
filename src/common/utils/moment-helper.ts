@@ -1,4 +1,8 @@
-import Moment from 'moment-timezone';
+import moment from 'moment-timezone';
+export class Moment {
 
-// 定义时区
-export const moment = Moment.tz('Asia/ShangHai');
+  setTz(tz = 'Asia/ShangHai') {
+    return moment().tz(tz);
+  }
+
+}
