@@ -4,7 +4,10 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test:index": "cross-env NODE_ENV=testing ts-node -r tsconfig-paths/register test/index.spec.ts --files",
+    "test": "cross-env NODE_ENV=testing ts-node -r tsconfig-paths/register test/index.spec.ts --files",
+    "test:watch": "nodemon -e ts --exec cross-env NODE_ENV=testing ts-node -r tsconfig-paths/register test/index.spec.ts --files",
+    "deploy": "ts-node -r tsconfig-paths/register ./deploy/main.ts --files",
+    "deploy:watch": "nodemon -e ts-node -r tsconfig-paths/register deploy.ts --files",
     "apply": "gulp && fission-cli-windows.exe spec apply",
     "apidoc": "apidoc -i ./src -o ./apidoc/dist -c ./apidoc"
   },
@@ -18,6 +21,7 @@
   },
   "devDependencies": {
     "@types/multiparty": "0.0.32",
+    "@types/shelljs": "^0.8.8",
     "@typescript-eslint/eslint-plugin": "^4.22.1",
     "@typescript-eslint/parser": "^4.22.1",
     "apidoc": "^0.25.0",
@@ -29,6 +33,8 @@
     "gulp-ts-alias": "^1.3.0",
     "gulp-typescript": "^6.0.0-alpha.1",
     "gulp-zip": "^5.1.0",
+    "nodemon": "^2.0.8",
+    "shelljs": "^0.8.4",
     "ts-node": "^9.1.1",
     "tsconfig-paths": "^3.9.0",
     "typescript": "^4.2.4"
