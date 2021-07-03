@@ -1,0 +1,20 @@
+{
+  "module" : "module-name",
+  "functions" : [
+    {
+      "name" : "hello",
+      "method": "GET",
+      "entry": "index.hello",
+      "keepalive" : false,
+      "url": "/hello",
+      "cron": "0 0 1 * * *"
+    },
+    {
+      "name" : "hello-fast",
+      "method": "GET",
+      "entry": "index.hello",
+      "keepalive" : true,
+      "url": "/hello_fast"
+    }
+  ]
+}

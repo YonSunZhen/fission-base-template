@@ -6,8 +6,6 @@
   "scripts": {
     "test": "cross-env NODE_ENV=testing ts-node -r tsconfig-paths/register test/index.spec.ts --files",
     "test:watch": "nodemon -e ts --exec cross-env NODE_ENV=testing ts-node -r tsconfig-paths/register test/index.spec.ts --files",
-    "deploy": "ts-node -r tsconfig-paths/register ./deploy/main.ts --files",
-    "deploy:watch": "nodemon -e ts-node -r tsconfig-paths/register deploy.ts --files",
     "apply": "gulp && fission-cli-windows.exe spec apply",
     "apidoc": "apidoc -i ./src -o ./apidoc/dist -c ./apidoc"
   },
@@ -29,6 +27,7 @@
     "del": "^6.0.0",
     "eslint": "^7.25.0",
     "gulp": "^4.0.2",
+    "gulplog": "^1.0.0",
     "gulp-sourcemaps": "^3.0.0",
     "gulp-ts-alias": "^1.3.0",
     "gulp-typescript": "^6.0.0-alpha.1",
