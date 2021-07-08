@@ -1,4 +1,5 @@
 {
+  "$schema": "http://10.133.71.30/hololens/devminus.json",
   "module" : "module-name",
   "functions" : [
     {
