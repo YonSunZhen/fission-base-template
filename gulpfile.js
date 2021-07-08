@@ -159,11 +159,75 @@ async function deploy_fn(fn) {
   }
 }
 
+async function delete_pkg() {
+  try {
+    await promisify(exec)(`fission-cli pkg info --name ${DM_MODULE}`);
+    try {
+      const res = await promisify(exec)(`fission-cli pkg delete --name ${DM_MODULE} --force`);
+      logger.info(res.stdout.slice(0, res.stdout.length - 1));
+    } catch (err) {
+      logger.info(err);
+    }
+  } catch (err) {
+    logger.info(`${DM_MODULE} pkg does not exist!`);
+  }
+}
+
+async function delete_fn(fn) {
+  try {
+    await promisify(exec)(`fission-cli fn getmeta --name ${fn.name}`);
+    try {
+      const res = await promisify(exec)(`fission-cli fn delete --name ${fn.name}`);
+      logger.info(res.stdout.slice(0, res.stdout.length - 1));
+    } catch (err) {
+      logger.info(err);
+    }
+  } catch (err) {
+    logger.info(`${fn.name} fn does not exist!`);
+  }
+
+  if (fn.url) {
+    try {
+      await promisify(exec)(`fission-cli ht get --name ${fn.name}`);
+      try {
+        const res = await promisify(exec)(`fission-cli ht delete --name ${fn.name}`);
+        logger.info(res.stdout.slice(0, res.stdout.length - 1));
+      } catch (err) {
+        logger.info(err);
+      }
+    } catch (err) {
+      logger.info(`${fn.name} ht does not exist!`);
+    }
+  }
+
+  if (fn.cron) {
+    try {
+      await promisify(exec)(`fission-cli tt get --name ${fn.name}`);
+      try {
+        const res = await promisify(exec)(`fission-cli tt delete --name ${fn.name}`);
+        logger.info(res.stdout.slice(0, res.stdout.length - 1));
+      } catch (err) {
+        logger.info(err);
+      }
+    } catch (err) {
+      logger.info(`${fn.name} tt does not exist!`);
+    }
+  }
+}
+
 async function deploy_fns() {
   for (const fn of DM_FUNCTIONS) {
     await deploy_fn(fn);
   }
 }
+
+async function delete_fns() {
+  for (const fn of DM_FUNCTIONS) {
+    await delete_fn(fn);
+  }
+}
+
+
 
 exports.default = gulp.series(clean_dist, build_ts, copy_assets, pack_dist);
 
@@ -174,3 +238,5 @@ exports.build = gulp.series(build_ts, copy_assets);
 exports.pack = pack_dist;
 
 exports.deploy =  gulp.series(deploy_pkg, deploy_fns);
+
+exports.delete = gulp.series(delete_pkg, delete_fns);
