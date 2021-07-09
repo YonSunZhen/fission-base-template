@@ -6,7 +6,6 @@
   "scripts": {
     "test": "cross-env NODE_ENV=testing ts-node -r tsconfig-paths/register test/index.spec.ts --files",
     "test:watch": "nodemon -e ts --exec cross-env NODE_ENV=testing ts-node -r tsconfig-paths/register test/index.spec.ts --files",
-    "apply": "gulp && fission-cli-windows.exe spec apply",
     "apidoc": "apidoc -i ./src -o ./apidoc/dist -c ./apidoc"
   },
   "author": "",
