@@ -5,17 +5,11 @@
     {
       "name" : "hello",
       "method": "GET",
-      "entry": "index.hello",
+      "entry": "index.test",
       "keepalive" : false,
       "url": "/hello",
+      "configmap": "devminus-shared-mariadb",
       "cron": "0 0 1 * * *"
-    },
-    {
-      "name" : "hello-fast",
-      "method": "GET",
-      "entry": "index.hello",
-      "keepalive" : true,
-      "url": "/hello_fast"
     }
   ]
 }

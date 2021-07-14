@@ -2,7 +2,7 @@
   "name": "assistant",
   "version": "1.0.0",
   "description": "",
-  "main": "index.js",
+  "main": "main.js",
   "scripts": {
     "test": "cross-env NODE_ENV=testing ts-node -r tsconfig-paths/register test/index.spec.ts --files",
     "test:watch": "nodemon -e ts --exec cross-env NODE_ENV=testing ts-node -r tsconfig-paths/register test/index.spec.ts --files",
